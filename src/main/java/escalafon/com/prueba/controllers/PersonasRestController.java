@@ -3,6 +3,7 @@ package escalafon.com.prueba.controllers;
 import escalafon.com.prueba.models.facultad;
 import escalafon.com.prueba.models.persona;
 import escalafon.com.prueba.repositories.IPersonasRepository;
+import escalafon.com.prueba.service.PersonasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +14,15 @@ import java.util.List;
 @RequestMapping("/api/personas")
 public class PersonasRestController {
 
+    private PersonasService personasService;
+
     @Autowired
-    private IPersonasRepository perrepo;
+    public PersonasRestController(PersonasService personasService) {
+        this.personasService = personasService;
+    }
 
     @GetMapping(value = "listar", headers = "Accept=application/json")
     public List<persona> getPersonas(){
-        return perrepo.getPersonas();
+        return personasService.listarPersonas();
     }
 }

@@ -1,18 +1,11 @@
 package escalafon.com.prueba.repositories;
 
 import escalafon.com.prueba.models.facultad;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
 
-public interface IFacultadesRepository{
-    List<facultad> getFacultades();
+@Repository
+public interface IFacultadesRepository extends JpaRepository<facultad,Integer> {
 
-    void eliminar(Long id);
-
-    void registrar(facultad fac);
-
-    facultad verificar(facultad fac);
-
-    Optional<facultad> findOneByEmail(String email);
 }

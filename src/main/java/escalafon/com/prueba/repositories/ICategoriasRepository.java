@@ -1,9 +1,11 @@
 package escalafon.com.prueba.repositories;
 
 import escalafon.com.prueba.models.categoria;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
-public interface ICategoriasRepository {
-    List<categoria> getCategorias();
+@Repository
+public interface ICategoriasRepository extends JpaRepository<categoria,Integer> {
+
 }

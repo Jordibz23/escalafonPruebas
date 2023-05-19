@@ -1,9 +1,11 @@
 package escalafon.com.prueba.repositories;
 
 import escalafon.com.prueba.models.escuela;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
-public interface IEscuelaRepository {
-    List<escuela> getEscuelas();
+@Repository
+public interface IEscuelaRepository extends JpaRepository<escuela,Integer> {
+
 }

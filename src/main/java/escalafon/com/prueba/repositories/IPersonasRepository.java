@@ -1,9 +1,11 @@
 package escalafon.com.prueba.repositories;
 
 import escalafon.com.prueba.models.persona;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
-public interface IPersonasRepository {
-    List<persona> getPersonas();
+@Repository
+public interface IPersonasRepository extends JpaRepository<persona,String> {
+
 }

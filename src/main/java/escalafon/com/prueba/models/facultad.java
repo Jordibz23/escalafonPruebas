@@ -1,24 +1,24 @@
 package escalafon.com.prueba.models;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 
 @Entity
 @Table(name="facultad")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString @EqualsAndHashCode
 public class facultad {
 
-    @Getter @Setter @Column(name = "idFacultad")
+    @Column(name = "idFacultad")
     @Id
     private int idFacultad;
 
-    @Getter @Setter @Column(name = "nombFacultad")
+    @Column(name = "nombFacultad")
     private String nombFacultad;
 
-    @Getter @Setter @Column(name = "estado")
+    @Column(name = "estado")
     private int estado;
 }
