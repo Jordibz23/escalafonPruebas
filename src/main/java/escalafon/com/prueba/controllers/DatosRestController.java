@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
+//@CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 @RequestMapping("/api/datos")
 public class DatosRestController {
 
@@ -20,7 +20,7 @@ public class DatosRestController {
 
     @Autowired
 
-
+    @CrossOrigin(origins = "http://localhost:8081")
     @GetMapping(value = "facultades", headers = "Accept=application/json")
     public List<facultad> getFacultades(){
         return datosService.listarFacultades();

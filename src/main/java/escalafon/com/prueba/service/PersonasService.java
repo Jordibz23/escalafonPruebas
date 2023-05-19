@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonasService {
@@ -21,9 +22,6 @@ public class PersonasService {
         this.personaSimpleRepository = personaSimpleRepository;
     }
 
-
-
-
     public List<persona> listarPersonas(){
         return personasRepository.findAll();
     }
@@ -31,4 +29,6 @@ public class PersonasService {
     public void guardarPersona(personaSimple personSimple){
         personaSimpleRepository.save(personSimple);
     }
+
+    public List<persona> listarPorCargoPersona(int idcargopersona){return personasRepository.findByCargoPersona(idcargopersona);}
 }
