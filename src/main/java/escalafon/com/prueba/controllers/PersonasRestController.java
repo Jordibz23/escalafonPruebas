@@ -2,6 +2,7 @@ package escalafon.com.prueba.controllers;
 
 import escalafon.com.prueba.models.facultad;
 import escalafon.com.prueba.models.persona;
+import escalafon.com.prueba.models.personaSimple;
 import escalafon.com.prueba.repositories.IPersonasRepository;
 import escalafon.com.prueba.service.PersonasService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,10 @@ public class PersonasRestController {
     @GetMapping(value = "listar", headers = "Accept=application/json")
     public List<persona> getPersonas(){
         return personasService.listarPersonas();
+    }
+
+    @PostMapping(value = "crear", headers = "Accept=application/json")
+    public void CrearPersona(@RequestBody personaSimple person){
+        personasService.guardarPersona(person);
     }
 }
