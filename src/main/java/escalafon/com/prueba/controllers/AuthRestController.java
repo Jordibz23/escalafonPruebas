@@ -73,11 +73,16 @@ public class AuthRestController {
 
     @PostMapping("login")
     public ResponseEntity<DtoAuthRespuesta> login(@RequestBody DtoLogin dtoLogin){
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                dtoLogin.getUsername(),dtoLogin.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = tokenProvider.generarToken(authentication);
-        return new ResponseEntity<>(new DtoAuthRespuesta(token),HttpStatus.OK);
+        try {
+            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                    dtoLogin.getUsername(),dtoLogin.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String token = tokenProvider.generarToken(authentication);
+            return new ResponseEntity<>(new DtoAuthRespuesta(token),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
+        }
+
     }
 
 }
