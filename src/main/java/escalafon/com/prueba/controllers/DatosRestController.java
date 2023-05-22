@@ -1,6 +1,6 @@
 package escalafon.com.prueba.controllers;
 
-import escalafon.com.prueba.models.*;
+import escalafon.com.prueba.modelsDatos.*;
 import escalafon.com.prueba.service.DatosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

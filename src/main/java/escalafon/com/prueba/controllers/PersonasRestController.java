@@ -1,7 +1,7 @@
 package escalafon.com.prueba.controllers;
 
-import escalafon.com.prueba.models.persona;
-import escalafon.com.prueba.models.personaSimple;
+import escalafon.com.prueba.modelsPersona.persona;
+import escalafon.com.prueba.modelsPersona.personaSimple;
 import escalafon.com.prueba.service.PersonasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

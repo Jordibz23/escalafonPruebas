@@ -1,7 +1,7 @@
 package escalafon.com.prueba.service;
 
-import escalafon.com.prueba.models.*;
-import escalafon.com.prueba.repositories.*;
+import escalafon.com.prueba.modelsDatos.*;
+import escalafon.com.prueba.repositoriesDatos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

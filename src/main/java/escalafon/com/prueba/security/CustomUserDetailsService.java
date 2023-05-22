@@ -1,8 +1,8 @@
 package escalafon.com.prueba.security;
 
-import escalafon.com.prueba.models.roles;
-import escalafon.com.prueba.models.usuarios;
-import escalafon.com.prueba.repositories.IUsuariosRepository;
+import escalafon.com.prueba.modelsPersona.roles;
+import escalafon.com.prueba.modelsPersona.usuarios;
+import escalafon.com.prueba.repositoriesPersona.IUsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

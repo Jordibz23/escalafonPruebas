@@ -1,14 +1,13 @@
 package escalafon.com.prueba.service;
 
-import escalafon.com.prueba.models.persona;
-import escalafon.com.prueba.models.personaSimple;
-import escalafon.com.prueba.repositories.IPersonaSimpleRepository;
-import escalafon.com.prueba.repositories.IPersonasRepository;
+import escalafon.com.prueba.modelsPersona.persona;
+import escalafon.com.prueba.modelsPersona.personaSimple;
+import escalafon.com.prueba.repositoriesPersona.IPersonaSimpleRepository;
+import escalafon.com.prueba.repositoriesPersona.IPersonasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PersonasService {
