@@ -11,6 +11,5 @@ import java.util.List;
 @Repository
 public interface IPersonasRepository extends JpaRepository<persona,String> {
 
-    @Query("SELECT p FROM persona p WHERE p.carper.id = :idCargoPersona")
-    List<persona> findByCargoPersona(int idCargoPersona);
+    List<persona> findByCarperIdcargopersona(int idCargoPersona);
 }

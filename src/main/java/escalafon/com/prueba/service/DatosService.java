@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DatosService {
@@ -59,7 +60,9 @@ public class DatosService {
     public List<facultad> listarFacultades(){
         return facultadesRepository.findAll();
     }
+    public Optional<facultad> buscarNombreFacultad(int id){return facultadesRepository.findById(id);}
     public List<hijos> listarHijos(){return hijosRepository.findAll();};
     public List<provincia> listarProvincia(){return provinciasRepository.findAll();}
     public List<regimenpensiones> listarRegimenPensiones(){return regimenPensionesRepository.findAll();}
+
 }

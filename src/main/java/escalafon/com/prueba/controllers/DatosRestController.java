@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 //@CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
@@ -14,16 +15,20 @@ public class DatosRestController {
 
     private DatosService datosService;
 
+    @Autowired
     public DatosRestController(DatosService datosService) {
         this.datosService = datosService;
     }
 
-    @Autowired
 
-    @CrossOrigin(origins = "http://localhost:8081")
     @GetMapping(value = "facultades", headers = "Accept=application/json")
     public List<facultad> getFacultades(){
         return datosService.listarFacultades();
+    }
+
+    @GetMapping(value = "nombrefacultad/{id:.+}", headers = "Accept=application/json")
+    public Optional<facultad> getNombreFacultad(@PathVariable int id){
+        return datosService.buscarNombreFacultad(id);
     }
 
     @GetMapping(value = "cargopersona", headers = "Accept=application/json")

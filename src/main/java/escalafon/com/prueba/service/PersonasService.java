@@ -30,5 +30,21 @@ public class PersonasService {
         personaSimpleRepository.save(personSimple);
     }
 
-    public List<persona> listarPorCargoPersona(int idcargopersona){return personasRepository.findByCargoPersona(idcargopersona);}
+    public List<persona> listarPorCargoPersona(int idcargopersona){return personasRepository.findByCarperIdcargopersona(idcargopersona);}
+
+    public String traerCodigo(){
+        personaSimple ultimoRegistro = personaSimpleRepository.findFirstByOrderByCodigoDesc();
+        if (ultimoRegistro!=null){
+            return incrementarCodigo(ultimoRegistro.getCodigo());
+        }
+        return "C00001";
+    }
+
+    private String incrementarCodigo(String codigo) {
+        String codigoNumerico = codigo.substring(1); // Obtener solo la parte numérica del código (excluyendo la letra "C")
+        int numero = Integer.parseInt(codigoNumerico); // Convertir la parte numérica a entero
+        numero++; // Incrementar en uno el número
+        String nuevoCodigoNumerico = String.format("%05d", numero); // Convertir el número incrementado a una cadena de longitud 5 con ceros a la izquierda
+        return "{\"codigo\":\"C" + nuevoCodigoNumerico+"\"}"; // Concatenar la letra "C" con el número incrementado y devolver el nuevo código
+    }
 }

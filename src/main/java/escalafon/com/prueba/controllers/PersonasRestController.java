@@ -4,6 +4,8 @@ import escalafon.com.prueba.models.persona;
 import escalafon.com.prueba.models.personaSimple;
 import escalafon.com.prueba.service.PersonasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,7 +33,19 @@ public class PersonasRestController {
     }
 
     @PostMapping(value = "crear", headers = "Accept=application/json")
-    public void CrearPersona(@RequestBody personaSimple person){
-        personasService.guardarPersona(person);
+    public ResponseEntity<String>  CrearPersona(@RequestBody personaSimple person){
+        try {
+            personasService.guardarPersona(person);
+            return new ResponseEntity<>("Registro de admin exitoso", HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("Ocurrio un error", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
+
+    @GetMapping(value = "ultimoCodigo", headers = "Accept=application/json")
+    public String traerCodigo(){
+        return personasService.traerCodigo();
+    }
+
 }
